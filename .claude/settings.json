@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-hardcoded-ids.sh",
+            "shell": "bash",
+            "timeout": 15,
+            "statusMessage": "Checking for hardcoded example IDs..."
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/run-tool-tests.sh",
+            "shell": "bash",
+            "timeout": 60,
+            "statusMessage": "Running tool tests..."
+          }
+        ]
+      }
+    ]
+  }
+}
